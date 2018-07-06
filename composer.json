@@ -1,0 +1,21 @@
+{
+  "name": "timur-flush/sofa-csrf",
+  "description": "The library is designed to be soft csrf protection in Phalcon application.",
+  "license": "BSD-3-Clause",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "flush02",
+      "email": "flush02@tutanota.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2.0",
+    "ext-phalcon": "^3.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "TimurFlush\\SofaCsrf\\": "src/"
+    }
+  }
+}
