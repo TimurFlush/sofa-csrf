@@ -4,6 +4,7 @@ namespace TimurFlush\SofaCsrf\Validator;
 
 use Phalcon\Validation\Message;
 use Phalcon\Validation\Validator;
+use Phalcon\Validation\ValidatorInterface;
 
 /**
  * Class Csrf
@@ -11,7 +12,7 @@ use Phalcon\Validation\Validator;
  * @version 2.0.0
  * @author Timur Flush
  */
-class Csrf extends Validator
+class Csrf extends Validator implements ValidatorInterface
 {
     public function validate(\Phalcon\Validation $validation, $attribute)
     {
@@ -19,7 +20,7 @@ class Csrf extends Validator
             trigger_error('Csrf service is not registered.', E_USER_ERROR);
 
         $this->setOption('cancelOnFail', true);
-        $value = $this->getValue($attribute) ?? '';
+        $value = $validation->getValue($attribute) ?? '';
 
         if ($validation->getDI()->getShared('csrf')->checkToken($value))
             return true;
