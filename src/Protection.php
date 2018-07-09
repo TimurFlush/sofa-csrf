@@ -96,7 +96,7 @@ class Protection
 
         return false;
     }
-    
+
     /**
      * @return string
      */
